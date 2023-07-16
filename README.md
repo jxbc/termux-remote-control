@@ -16,6 +16,8 @@ Termux Remote Control allows the following:
 
 ## Install
 
+> Note: you must have Node.js >= v18.x.x installed
+
 Use the most convenient installation method, just copy the following into Termux:
 
     curl -O https://raw.githubusercontent.com/jxbc/termux-remote-control/main/install.sh
