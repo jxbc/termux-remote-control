@@ -1,4 +1,4 @@
-# Termux Remote Control (Windows)
+# Termux Remote Control (Windows) [no root]
 
 ![TermuxLogo](https://play-lh.googleusercontent.com/m3oqSZCwmitiZ-Im-CQu_rqT5eLHilOp5IudBynv3COJUumFzuQaP2dgTDxRL_03f4x2=w240-h480-rw)
 
