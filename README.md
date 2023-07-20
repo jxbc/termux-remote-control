@@ -28,7 +28,7 @@ Note that you do not need to run `install.sh` again after closing the script. To
 
 ## Install Windows App
 
-Installation of the application on Windows is not required as such. Just [download the file from this link](https://github.com/jxbc/termux-remote-control/releases/tag/termux), make sure `rc.js` is running on your Android device, then launch the Windows App. The app will automatically find your Android if you are connected to the same router and DHCP is correctly configured.
+Installation of the application on Windows is not required as such. Just [download the latest file from this link](https://github.com/jxbc/termux-remote-control/releases), make sure `rc.js` is running on your Android device, then launch the Windows App. The app will automatically find your Android if you are connected to the same router and DHCP is correctly configured.
 
 Attention! We know about some bugs related to files and folders, I will fix them soon. 
 
