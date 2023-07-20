@@ -29,6 +29,7 @@ async function onConnect(ws, req) {
 	ws.on('message', function(message) {
 		if(message.indexOf('{') > -1 && message.indexOf('{') < 2) {
 			let get = JSON.parse(message)
+			
 			if(get.type == "findtermux") {
 				ws.send(JSON.stringify({type: 'findtermux', json: {name: os.hostname(), arch: os.machine(), platform: os.platform()}}))
 			}
@@ -38,6 +39,10 @@ async function onConnect(ws, req) {
 			if(get.type == "toPath") {
 				let t = ls(get.path)
 				ws.send(JSON.stringify({type: 'toPath', pipe: t, path: get.path}))
+			}
+			if(get.type == "createDir") {
+				createDir(get.name, get.path)
+				ws.send(JSON.stringify({type: 'toPath', pipe: ls(get.path), path: get.path}))
 			}
 			if(get.type == "Upload") {
 				let name = get.name;
@@ -81,4 +86,4 @@ let rand = (min, max) => {
   return Math.floor(rand);
 }
 
-console.log('ok');
+console.log('[5005] App Started');
