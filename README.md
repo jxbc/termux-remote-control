@@ -6,15 +6,26 @@ This application is designed to manage your Termux from your computer. Turn your
 
 ## Useful
 
-Termux Remote Control allows the following:
+**Termux Remote Control** allows the following:
 - Uploading and downloading files
 - Working with the internal Termux directory without the necessary storage packages. Simply install Termux and TermuxRC and discover the convenience.
-- Full file control (in development)
+- Full file control
 - Code editor (in development)
 - Package Manager (in development)
 - Input Templatizer (pending)
 
-## Install
+## Install Termux
+Install the latest version of Termux from Fdroid. The Google Play version is outdated and may not support some Node.js packages.
+
+[Download from this link](https://f-droid.org/ru/packages/com.termux/)
+
+## Install Node.js in Termux
+In case you have already installed Termux with Fdroid, then run the following commands to have all the required components.
+
+    pkg update && pkg upgrade -y
+    pkg install nodejs
+
+## Install TermuxRC
 
 > Note: you must have Node.js >= v18.x.x installed
 
@@ -28,13 +39,13 @@ Note that you do not need to run `install.sh` again after closing the script. To
 
 ## Install Windows App
 
-Installation of the application on Windows is not required as such. Just [download the latest file from this link](https://github.com/jxbc/termux-remote-control/releases), make sure `rc.js` is running on your Android device, then launch the Windows App. The app will automatically find your Android if you are connected to the same router and DHCP is correctly configured.
+Installation of the application on Windows is not required as such. Just [download the file from this link](https://github.com/jxbc/termux-remote-control/releases), make sure `rc.js` is running on your Android device, then launch the Windows App. The app will automatically find your Android if you are connected to the same router and DHCP is correctly configured.
 
-Attention! We know about some bugs related to files and folders, I will fix them soon. 
 
 ## Donate
 
 If you have been useful or like my idea, support my development in these areas if you have money, I would be very grateful to everyone! :)
 
 **USDT (TRC20):** TQjF7YyR3H23BDtoeHCbrh6agi9V5NYuZN
+
 **BTC:** 147BP3w2WgKhjHyQ24n4NHZtyudUQZBvXM
