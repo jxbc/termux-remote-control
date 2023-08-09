@@ -23,6 +23,13 @@ function createDir(name, pt) {
 	});
 }
 
+function removeFile(path) {
+	fs.unlinkSync(path);
+}
+function removeDir(path) {
+	fs.rmSync(path, { recursive: true, force: true });
+}
+
 wsServer.on('connection', onConnect);
 
 async function onConnect(ws, req) {
@@ -42,6 +49,14 @@ async function onConnect(ws, req) {
 			}
 			if(get.type == "createDir") {
 				createDir(get.name, get.path)
+				ws.send(JSON.stringify({type: 'toPath', pipe: ls(get.path), path: get.path}))
+			}
+			if(get.type == "removeFolder") {
+				removeDir(get.object)
+				ws.send(JSON.stringify({type: 'toPath', pipe: ls(get.path), path: get.path}))
+			}
+			if(get.type == "removeFile") {
+				removeFile(get.object)
 				ws.send(JSON.stringify({type: 'toPath', pipe: ls(get.path), path: get.path}))
 			}
 			if(get.type == "Upload") {
@@ -65,6 +80,7 @@ async function onConnect(ws, req) {
 				let writeableStream = fs.createWriteStream(uploads.path + '/' + uploads.name);
 
 				readable.pipe(writeableStream);
+				ws.send(JSON.stringify({type: 'toPath', pipe: ls(uploads.path), path: uploads.path}))
 				upload = 0;
 				uploads.name = null;
 				uploads.path= null;
