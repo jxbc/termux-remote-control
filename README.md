@@ -4,6 +4,9 @@
 
 This application is designed to manage your Termux from your computer. Turn your Android into a real dragon that can do all the same things as a Linux server. All this is available for Windows and has a GUI interface.
 
+![image](https://github.com/jxbc/termux-remote-control/assets/30753109/00d7c3a0-b548-456c-b9be-ea0501a3beb3)
+
+
 ## Useful
 
 **Termux Remote Control** allows the following:
