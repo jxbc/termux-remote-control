@@ -5,6 +5,9 @@ const path = require('path');
 const os = require('os');
 const workPath = path.resolve('..');
 const { Readable } = require('stream');
+const { exec } = require("child_process");
+
+const MAX_WS_BINARY = 52428800;
 
 let upload = 0;
 let uploads = { name: null, path: null };
@@ -37,8 +40,25 @@ async function onConnect(ws, req) {
 		if(message.indexOf('{') > -1 && message.indexOf('{') < 2) {
 			let get = JSON.parse(message)
 			
+			if(get.type == "cmd") {
+				exec(get.pipe, (error, stdout, stderr) => {
+					if(error) {
+						console.log(error)
+						ws.send(JSON.stringify({type: 'cmd', pipe: 'Error'}))
+					}
+					if(stdout) {
+						ws.send(JSON.stringify({type: 'cmd', pipe: stdout}))
+					}
+					if(stderr) {
+						console.log(stderr)
+					}
+				})
+			}
 			if(get.type == "findtermux") {
 				ws.send(JSON.stringify({type: 'findtermux', json: {name: os.hostname(), arch: os.machine(), platform: os.platform()}}))
+			}
+			if(get.type == "ping") {
+				ws.send(JSON.stringify({type: 'ping', pipe: get.pipe}))
 			}
 			if(get.type == "getall") {
 				ws.send(JSON.stringify({type: 'ls', pipe: ls(workPath), path: workPath}))
@@ -102,4 +122,5 @@ let rand = (min, max) => {
   return Math.floor(rand);
 }
 
+console.log('>>>>>>>>>>> TERMUXRC ANDROID >>>>>>>>>>>>');
 console.log('[5005] App Started');
