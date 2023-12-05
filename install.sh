@@ -7,5 +7,5 @@ curl -O https://raw.githubusercontent.com/jxbc/termux-remote-control/main/bridge
 apt install wget
 bash bridge.sh
 clear
-echo "INSTALL COMPLETE!"
-node rc.js
+pm2 start rc.js
+echo "INSTALL COMPLETE! Script Started"
