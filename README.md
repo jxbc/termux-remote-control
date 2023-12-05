@@ -46,9 +46,9 @@ Installation of the application on Windows is not required as such. Just [downlo
 
 ## How to configure ngrok (Proxy)
 After the installation, you need to register on the NGROK website and copy the Auth Token (or API key). Then enter the command in the termux console:
-`
-ngrok config add-authtoken *
-`
+
+    ngrok config add-authtoken *
+
 Instead of an asterisk, you need to insert your key. After this setup, you will be able to proxy your websites from your phone. This simplifies the process when you need to show the website functioning without a server.
 
 In order to use the proxy from NGROK, it is enough to run the server with the proxy option in the program for Windows.
